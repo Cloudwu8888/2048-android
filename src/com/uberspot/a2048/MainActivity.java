@@ -25,6 +25,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.RenderPriority;
 import android.webkit.WebView;
 import android.widget.Toast;
+import com.microsoft.azure.mobile.MobileCenter;
+import com.microsoft.azure.mobile.analytics.Analytics;
+import com.microsoft.azure.mobile.crashes.Crashes;
 
 import de.cketti.library.changelog.ChangeLog;
 
@@ -45,7 +48,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        MobileCenter.start(getApplication(), "9b1005af-92b1-4332-9b0e-330e57212135",
+                Analytics.class, Crashes.class);
         // Don't show an action bar or title
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
